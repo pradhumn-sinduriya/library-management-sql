@@ -1,0 +1,101 @@
+-- Sample Data for Library Management System
+USE library_db;
+
+-- Insert Students (20 records)
+INSERT INTO students (name, email, phone, branch, join_date) VALUES
+('Pradhumn Sinduriya', 'pradhumn@email.com', '9876543210', 'BCA', '2024-07-01'),
+('Riya Sharma', 'riya.sharma@email.com', '9812345670', 'BCA', '2024-07-01'),
+('Aman Verma', 'aman.verma@email.com', '9823456781', 'BCA', '2024-07-01'),
+('Sneha Patel', 'sneha.patel@email.com', '9834567892', 'BCA', '2024-07-01'),
+('Rohit Joshi', 'rohit.joshi@email.com', '9845678903', 'BCA', '2024-07-01'),
+('Priya Gupta', 'priya.gupta@email.com', '9856789014', 'BCA', '2024-07-01'),
+('Karan Mehta', 'karan.mehta@email.com', '9867890125', 'BCA', '2024-07-01'),
+('Anjali Singh', 'anjali.singh@email.com', '9878901236', 'BCA', '2024-07-01'),
+('Vivek Yadav', 'vivek.yadav@email.com', '9889012347', 'BCA', '2024-07-01'),
+('Pooja Mishra', 'pooja.mishra@email.com', '9890123458', 'BCA', '2024-07-01'),
+('Arjun Tiwari', 'arjun.tiwari@email.com', '9901234569', 'BCA', '2024-07-15'),
+('Neha Rajput', 'neha.rajput@email.com', '9912345670', 'BCA', '2024-07-15'),
+('Sourav Bhatt', 'sourav.bhatt@email.com', '9923456781', 'BCA', '2024-07-15'),
+('Divya Chouhan', 'divya.chouhan@email.com', '9934567892', 'BCA', '2024-07-15'),
+('Harsh Malviya', 'harsh.malviya@email.com', '9945678903', 'BCA', '2024-07-15'),
+('Kavya Pandey', 'kavya.pandey@email.com', '9956789014', 'BCA', '2024-07-15'),
+('Mohit Saxena', 'mohit.saxena@email.com', '9967890125', 'BCA', '2024-07-15'),
+('Ishika Dubey', 'ishika.dubey@email.com', '9978901236', 'BCA', '2024-07-15'),
+('Rahul Agrawal', 'rahul.agrawal@email.com', '9989012347', 'BCA', '2024-07-15'),
+('Simran Kaur', 'simran.kaur@email.com', '9990123458', 'BCA', '2024-07-15');
+
+-- Insert Books (25 records)
+INSERT INTO books (title, author, genre, total_copies, available_copies) VALUES
+('Introduction to SQL', 'C.J. Date', 'Database', 3, 2),
+('Python Crash Course', 'Eric Matthes', 'Programming', 4, 2),
+('Data Analytics Fundamentals', 'Thomas Nield', 'Analytics', 3, 1),
+('Clean Code', 'Robert C. Martin', 'Programming', 2, 1),
+('The Pragmatic Programmer', 'Andrew Hunt', 'Programming', 2, 2),
+('Database System Concepts', 'Silberschatz', 'Database', 5, 3),
+('Computer Networks', 'Andrew Tanenbaum', 'Networking', 3, 2),
+('Operating System Concepts', 'Galvin', 'OS', 4, 2),
+('Artificial Intelligence', 'Stuart Russell', 'AI', 2, 1),
+('Data Structures in C', 'Yedidyah Langsam', 'Programming', 3, 2),
+('Web Development with HTML', 'Jon Duckett', 'Web', 3, 3),
+('JavaScript: Good Parts', 'Douglas Crockford', 'Web', 2, 1),
+('Excel for Data Analysis', 'Conrad Carlberg', 'Analytics', 2, 1),
+('Business Intelligence', 'Larissa Moss', 'Analytics', 2, 2),
+('Machine Learning Basics', 'Aurélien Géron', 'AI', 2, 1),
+('Object Oriented Programming', 'Timothy Budd', 'Programming', 3, 2),
+('Software Engineering', 'Ian Sommerville', 'Engineering', 3, 2),
+('Computer Organization', 'Carl Hamacher', 'Hardware', 2, 2),
+('Discrete Mathematics', 'Kenneth Rosen', 'Mathematics', 4, 3),
+('Statistics for Data Science', 'Peter Bruce', 'Analytics', 2, 1),
+('Cloud Computing Concepts', 'Thomas Erl', 'Cloud', 2, 2),
+('Cybersecurity Essentials', 'William Stallings', 'Security', 2, 2),
+('Linux Command Line', 'William Shotts', 'OS', 3, 2),
+('Git and GitHub', 'Peter Bell', 'Tools', 2, 1),
+('Agile Project Management', 'Jim Highsmith', 'Management', 2, 2);
+
+-- Insert Transactions (40 records — mix of returned, overdue, active)
+INSERT INTO transactions (student_id, book_id, issue_date, due_date, return_date, fine_amount) VALUES
+-- Returned on time
+(1, 1, '2025-01-05', '2025-01-19', '2025-01-17', 0.00),
+(2, 2, '2025-01-06', '2025-01-20', '2025-01-18', 0.00),
+(3, 6, '2025-01-07', '2025-01-21', '2025-01-20', 0.00),
+(4, 8, '2025-01-08', '2025-01-22', '2025-01-21', 0.00),
+(5, 10, '2025-01-09', '2025-01-23', '2025-01-22', 0.00),
+(6, 3, '2025-01-10', '2025-01-24', '2025-01-23', 0.00),
+(7, 5, '2025-01-11', '2025-01-25', '2025-01-24', 0.00),
+(8, 7, '2025-01-12', '2025-01-26', '2025-01-25', 0.00),
+(9, 11, '2025-01-13', '2025-01-27', '2025-01-26', 0.00),
+(10, 19, '2025-01-14', '2025-01-28', '2025-01-27', 0.00),
+-- Returned late (fine applied)
+(1, 4, '2025-02-01', '2025-02-15', '2025-02-20', 25.00),
+(2, 9, '2025-02-02', '2025-02-16', '2025-02-25', 45.00),
+(3, 12, '2025-02-03', '2025-02-17', '2025-03-01', 70.00),
+(4, 15, '2025-02-04', '2025-02-18', '2025-02-28', 50.00),
+(5, 20, '2025-02-05', '2025-02-19', '2025-03-05', 80.00),
+(6, 13, '2025-02-06', '2025-02-20', '2025-02-27', 35.00),
+(7, 16, '2025-02-07', '2025-02-21', '2025-03-02', 55.00),
+(8, 24, '2025-02-08', '2025-02-22', '2025-02-28', 30.00),
+(11, 2, '2025-02-09', '2025-02-23', '2025-03-03', 40.00),
+(12, 6, '2025-02-10', '2025-02-24', '2025-03-10', 70.00),
+-- Currently active (not yet returned, not overdue)
+(13, 1, '2025-06-20', '2025-07-04', NULL, 0.00),
+(14, 3, '2025-06-21', '2025-07-05', NULL, 0.00),
+(15, 8, '2025-06-22', '2025-07-06', NULL, 0.00),
+(16, 10, '2025-06-23', '2025-07-07', NULL, 0.00),
+(17, 14, '2025-06-24', '2025-07-08', NULL, 0.00),
+-- OVERDUE (not returned, due date already passed)
+(18, 9,  '2025-05-01', '2025-05-15', NULL, 0.00),
+(19, 12, '2025-05-02', '2025-05-16', NULL, 0.00),
+(20, 15, '2025-05-03', '2025-05-17', NULL, 0.00),
+(1,  20, '2025-05-04', '2025-05-18', NULL, 0.00),
+(2,  13, '2025-05-05', '2025-05-19', NULL, 0.00),
+(3,  24, '2025-05-06', '2025-05-20', NULL, 0.00),
+(4,  4,  '2025-05-07', '2025-05-21', NULL, 0.00),
+(5,  16, '2025-05-08', '2025-05-22', NULL, 0.00),
+-- More variety
+(6,  2,  '2025-03-10', '2025-03-24', '2025-03-22', 0.00),
+(7,  6,  '2025-03-11', '2025-03-25', '2025-03-24', 0.00),
+(8,  19, '2025-03-12', '2025-03-26', '2025-04-01', 30.00),
+(9,  1,  '2025-04-01', '2025-04-15', '2025-04-20', 25.00),
+(10, 8,  '2025-04-05', '2025-04-19', '2025-04-18', 0.00),
+(11, 3,  '2025-04-10', '2025-04-24', '2025-05-01', 35.00),
+(12, 7,  '2025-04-15', '2025-04-29', '2025-04-28', 0.00);
